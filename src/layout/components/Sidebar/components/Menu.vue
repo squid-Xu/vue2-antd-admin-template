@@ -1,5 +1,5 @@
 <template>
-  <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
+  <a-menu :theme="sidebarStyle" mode="inline" :default-selected-keys="['1']">
     <a-menu-item key="1">
       <a-icon type="user" />
       <span>nav 1</span>
@@ -18,6 +18,11 @@
 export default {
   data() {
     return {};
+  },
+  computed: {
+    sidebarStyle() {
+      return this.$store.state.app.sidebarStyle;
+    },
   },
 };
 </script>

@@ -8,14 +8,15 @@
       <!-- <ComponentSize /> -->
       <!-- <Fullscreen /> -->
       <!-- <User /> -->
-      <!-- <Settings /> -->
+      <Settings />
     </div>
   </div>
 </template>
 <script>
 import Hamburger from "./components/Hamburger.vue";
+import Settings from "../Settings/index.vue";
 export default {
-  components: { Hamburger },
+  components: { Hamburger, Settings },
   data() {
     return {};
   },

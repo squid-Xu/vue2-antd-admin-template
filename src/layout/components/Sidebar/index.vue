@@ -1,5 +1,10 @@
 <template>
-  <a-layout-sider v-model="sidebarOpened" :trigger="null" collapsible>
+  <a-layout-sider
+    :theme="sidebarStyle"
+    v-model="sidebarOpened"
+    :trigger="null"
+    collapsible
+  >
     <Logo></Logo>
     <Menu />
   </a-layout-sider>
@@ -15,6 +20,9 @@ export default {
   computed: {
     sidebarOpened() {
       return this.$store.state.app.sidebarOpened;
+    },
+    sidebarStyle() {
+      return this.$store.state.app.sidebarStyle;
     },
   },
 };
