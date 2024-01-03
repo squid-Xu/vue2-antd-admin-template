@@ -1,10 +1,11 @@
 import Vue from 'vue'
-import Antd from 'ant-design-vue';
 import App from './App.vue'
-import 'ant-design-vue/dist/antd.css';
-
 import router from './router';
 import store from './store';
+
+// 引入 antdv
+import Antd from 'ant-design-vue';
+import './styles/theme.less'//引入less重写antd
 
 Vue.config.productionTip = false
 
