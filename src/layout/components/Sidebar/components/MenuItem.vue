@@ -5,8 +5,10 @@
     </span>
     <template v-for="sub in props.menuInfo.children">
       <a-menu-item v-if="!sub.children || sub?.children.length == 1" :key="sub.path">
-        <a-icon type="pie-chart" />
-        <span>{{ sub?.meta?.title || sub?.children?.[0]?.meta?.title }}</span>
+        <router-link :to="sub.path">
+          <a-icon type="pie-chart" />
+          <span>{{ sub?.meta?.title || sub?.children?.[0]?.meta?.title }}</span>
+        </router-link>
       </a-menu-item>
       <menu-item v-else :menu-info="sub" :key="sub.path" />
     </template>
