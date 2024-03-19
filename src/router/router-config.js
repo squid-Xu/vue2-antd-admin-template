@@ -3,6 +3,11 @@ const Layout = () => import('../layout/index.vue')
 
 export const constantRouterMap = [
     {
+        path: '/login',
+        component: () => import('../views/login/index.vue'),
+        meta: { title: '登录页',hidden:true }
+    },
+    {
         path: '/',
         component: Layout,
         redirect: '/home',
@@ -10,7 +15,7 @@ export const constantRouterMap = [
             {
                 path: 'home',
                 component: () => import('../views/home/index.vue'),
-                meta: { title: '首页' }
+                meta: { title: '首页',icon:'home' }
             }
         ]
     },
@@ -21,7 +26,7 @@ export const constantRouterMap = [
             {
                 path: '',
                 component: () => import('../views/form/index.vue'),
-                meta: { title: '表单' }
+                meta: { title: '表单',icon:'form' }
             }
         ]
     },
@@ -32,7 +37,7 @@ export const constantRouterMap = [
             {
                 path: '',
                 component: () => import('../views/navigation/index.vue'),
-                meta: { title: '导航一' }
+                meta: { title: '导航一',icon:'shop' }
             }
         ]
     },
@@ -43,14 +48,15 @@ export const constantRouterMap = [
             {
                 path: '',
                 component: () => import('../views/navigation/index.vue'),
-                meta: { title: '导航二' }
+                meta: { title: '导航二',icon:'rest' }
             }
         ]
     },
     {
         path: '/navigation-3',
         component: Layout,
-        meta: { title: '导航三' },
+        redirect: '/navigation-3/option-3',
+        meta: { title: '导航三',icon:'save' },
         children: [
             {
                 path: 'option-3',
@@ -65,6 +71,7 @@ export const constantRouterMap = [
             {
                 path: 'submenu',
                 component: () => import('../views/navigation/index.vue'),
+                redirect: '/navigation-3/submenu/option-5',
                 meta: { title: '子菜单' },
                 children:[
                     {
@@ -84,10 +91,11 @@ export const constantRouterMap = [
     {
         path: '/navigation-4',
         component: Layout,
-        meta: { title: '导航四' },
+        redirect: '/navigation-4/option-7',
+        meta: { title: '导航四',icon:'read' },
         children: [
             {
-                path: '',
+                path: 'option-7',
                 component: () => import('../views/navigation/index.vue'),
                 meta: { title: '选项七' },
             },
@@ -104,7 +112,15 @@ export const constantRouterMap = [
             {
                 path: 'option-10',
                 component: () => import('../views/navigation/index.vue'),
+                redirect: '/navigation-4/option-10/option-11',
                 meta: { title: '选项十' },
+                children:[
+                    {
+                        path: 'option-11',
+                        component: () => import('../views/navigation/index.vue'),
+                        meta: { title: '选项十一' },
+                    }
+                ]
             },
         ]
     },

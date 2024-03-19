@@ -1,16 +1,17 @@
 <template functional>
-  <a-sub-menu :key="props.menuInfo.path">
-    <span slot="title">
-      <a-icon type="mail" /><span>{{ props.menuInfo?.meta?.title }}</span>
-    </span>
-    <template v-for="sub in props.menuInfo.children">
-      <a-menu-item v-if="!sub.children || sub?.children.length == 1" :key="sub.path">
-        <router-link :to="sub.path">
-          <a-icon type="pie-chart" />
-          <span>{{ sub?.meta?.title || sub?.children?.[0]?.meta?.title }}</span>
-        </router-link>
-      </a-menu-item>
-      <menu-item v-else :menu-info="sub" :key="sub.path" />
-    </template>
-  </a-sub-menu>
+	<a-sub-menu :key="props.menuInfo.path">
+		<span slot="title">
+			<a-icon v-if="props.menuInfo?.meta?.icon" :type="props.menuInfo?.meta?.icon" />
+			<span>{{ props.menuInfo?.meta?.title }}</span>
+		</span>
+		<template v-for="sub in props.menuInfo.children">
+			<a-menu-item v-if="!sub.children" :key="`${props.basePath}/${sub.path}`">
+				<router-link :to="`${props.basePath}/${sub.path}`">
+					<a-icon v-if="sub?.meta?.icon" :type="sub?.meta?.icon" />
+					<span>{{ sub?.meta?.title }}</span>
+				</router-link>
+			</a-menu-item>
+			<menu-item v-else :menu-info="sub" :key="sub.path" :base-path="`${props.menuInfo.path}/${sub.path}`" />
+		</template>
+	</a-sub-menu>
 </template>

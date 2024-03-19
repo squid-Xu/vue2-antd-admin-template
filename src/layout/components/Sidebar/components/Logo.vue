@@ -1,10 +1,12 @@
 <template>
-  <div class="logo"></div>
+	<div class="logo">Ant Design Vue</div>
 </template>
 <style lang="less" scoped>
 .logo {
-  height: 32px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px;
+	height: 64px;
+	text-align: center;
+	line-height: 64px;
+	font-size: 20px;
+	color: var(--primary-color);
 }
 </style>
